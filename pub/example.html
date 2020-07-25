@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SCL</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="./css/example.css" />
+    <link rel="stylesheet" type="text/css" href="./css/scl.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap" rel="stylesheet">
+    <script defer type="text/javascript" src="./js/scl.js"></script>
+    <script defer type="text/javascript" src="./js/example.js"></script>
+  </head>
+  <body>
+      <div class="background">
+      <h1 class="title">SCL Library</h1>
+      <h3 class="description"> Easily add customisable cards, sliders and Carousel wheels to your Webpage. All it takes is two tags.</h3>
+      <p class="instructions"> Step 1: Download the two files here:     <a class="github" href="#"><i class="fa fa-github-square" aria-hidden="true"></i></a><br><br>
+        Step 2: Add the following tags listed below to &lt;head&gt; in your code modifying the links. <br>
+        <span class="links">
+        &lt;link rel="stylesheet" type="text/css" href="path/to//scl.css" /&gt;<br>
+      </span>
+      <span class="links">
+        &lt;script type="text/javascript" src="scl.js"&gt;&lt;/script&gt;
+      </span>
+      <br><br>
+      Step 3: In your JavaScript file create a new instance of Card as below:<br>
+      <span class="links">
+        const card = new Card();
+      </span><br><br>
+      Step 4: Access the built in functions using the instanciated variable, <br>
+      <span class="links">
+        s.makeCardAFlip(....);
+      </span><br><br>
+      Step 5: Enjoy using the functions to decorate your webpage.
+      </p>
+      <h2 class="subtitle"><i class="fa fa-contao" aria-hidden="true"></i>ards</h2>
+      <div class="functions">
+        <p class="function_des"> <span class="functionname">makeANone(ElementName, ImageUrl, Text)</span><br>
+        The function helps create the card shown on the right with hover animations on the image. The first argument to this function is the name of the div element which should hold the card. Note that the height and width properties of the div element must be
+        set and the card will occupy the full div.The second argument is the url of the image to add and the third argument is the text to be added to the card. <br>
+        </p>
+        <div name="card" class="card"></div>
+      </div>
+      <div class="functions2">
+        <div name="card2" class="card2"></div>
+        <p class="function_des2"> <span class="functionname">makeAOpacity(ElementName, BackgroundImage, ProfileImage, Name, ShortDetails)</span><br>
+        The function helps create the card shown on the left with hover animations to change the opacity. The first argument to this function is the name of the div element which should hold the card. Note that the height and width properties of the div element must be
+        set and the card will occupy the full div.The next two arguments are url's for the background and profile images respectively. The last two arguments are for the title text and the short description.
+         <br>
+        </p>
+      </div>
+      <div class="functions">
+        <p class="function_des"> <span class="functionname">makeAFlip(ElementName, BackgroundImage, ProfileImage, Name, ShortDetails)</span><br>
+        The function helps create a two sided card shown on the right. The first argument to this function is the name of the div element which should hold the card. Note that the height and width properties of the div element must be
+        set and the card will occupy the full div.The next two arguments are url's for the background image(on front side) and the profile image (on the back). The last two arguments are for the title text and the short description. <br>
+        </p>
+        <div name="card3" class="card"></div>
+      </div>
+      <h2 class="subtitle"><i class="fa fa-scribd" aria-hidden="true"></i>liders</h2>
+      <div class="functions">
+        <p class="function_des"> <span class="functionname">makeSliderOne(ElementName, ListOfImages)</span><br>
+        The function helps create the slider of images on the right. The first argument to this function is the name of the div element which should hold the card. Note that the height and width properties of the div element must be
+        set and the card will occupy the full div. The next argument is a list of images to add to the slider.<br>
+        Note: The slider is set up to move to the first element if the user tries going right on the last element and vice versa.
+        </p>
+        <div name="card4" class="card"></div>
+      </div>
+        <!-- <div name="card" class="card"></div>
+        <div name="card2" class="card2"></div>
+        <div name="card3" class="card3"></div>
+        <div name="card4" class="card4"></div> -->
+      </div>
+      
+    </div>
+  </body>
+</html>
