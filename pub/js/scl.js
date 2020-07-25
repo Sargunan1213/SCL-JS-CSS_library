@@ -1,3 +1,5 @@
+"use strict";
+
 function Card() {
   this.cards = [];
   this.slider = [];

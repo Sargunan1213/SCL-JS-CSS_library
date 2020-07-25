@@ -1,3 +1,4 @@
+"use strict";
 const s = new Card();
 s.makeCardANone(
   "card",
