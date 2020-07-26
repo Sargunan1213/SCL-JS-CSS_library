@@ -229,7 +229,7 @@ Card.prototype = {
 
     const watsapp_a = document.createElement("a");
     watsapp_a.className = "scl_AFlip_agit";
-    watsapp_a.hrefs = links[5];
+    watsapp_a.href = links[5];
     watsapp_a.target = "_blank";
     const watsapp_icon = document.createElement("i");
     watsapp_icon.className = "fa fa-envelope";
