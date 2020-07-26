@@ -73,7 +73,7 @@
 }
 
 .scl_AOpacity_container {
-  flex: 1;
+  flex: 2;
   height: 60%;
   margin: 0px;
 }
@@ -85,10 +85,10 @@
 .scl_AOpacity_icon {
   border-radius: 100%;
   border: 3px solid white;
-  height: 63%;
-  width: 37%;
-  margin-left: 30%;
-  margin-top: 9%;
+  height: 67%;
+  width: 40%;
+  margin-left: 28%;
+  margin-top: 6%;
 }
 
 .scl_AOpacity_a {
@@ -197,8 +197,8 @@
   cursor: pointer;
   border-radius: 100%;
   border: 3px solid black;
-  height: 71%;
-  width: 40%;
+  max-height: 71%;
+  max-width: 34%;
   margin-left: 29%;
   margin-top: 9%;
 }
@@ -268,7 +268,7 @@
 .scl_Slider_left_button {
   margin: 0px;
   background: transparent;
-  color: grey;
+  color: white;
   border-radius: 100%;
   font-size: 288%;
   font-weight: 700;
@@ -301,7 +301,7 @@
 .scl_Slider_right_button {
   margin: 0px;
   background: transparent;
-  color: grey;
+  color: white;
   border-radius: 100%;
   font-size: 288%;
   font-weight: 700;

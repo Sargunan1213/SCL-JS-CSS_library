@@ -84,6 +84,7 @@ body {
   background-repeat: no-repeat;
   background-clip: border-box;
   margin-bottom: 5%;
+  overflow: auto;
 }
 
 .function_des {

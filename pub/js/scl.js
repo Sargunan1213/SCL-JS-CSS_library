@@ -56,7 +56,8 @@ Card.prototype = {
     image_src1,
     image_src2,
     title_text,
-    text
+    text,
+    links
   ) {
     const card = document.createElement("div");
     card.className = "scl_AOpacity";
@@ -84,6 +85,8 @@ Card.prototype = {
 
     const facebook_a = document.createElement("a");
     facebook_a.className = "scl_AOpacity_a";
+    facebook_a.href = links[0];
+    facebook_a.target = "_blank";
     const facebook_icon = document.createElement("i");
     facebook_icon.className = "fa fa-facebook-square";
     facebook_icon.setAttribute("aria-hidden", "true");
@@ -92,6 +95,8 @@ Card.prototype = {
 
     const github_a = document.createElement("a");
     github_a.className = "scl_AOpacity_agit";
+    github_a.href = links[1];
+    github_a.target = "_blank";
     const github_icon = document.createElement("i");
     github_icon.className = "fa fa-github-square";
     github_icon.setAttribute("aria-hidden", "true");
@@ -100,6 +105,8 @@ Card.prototype = {
 
     const linked_a = document.createElement("a");
     linked_a.className = "scl_AOpacity_agit";
+    linked_a.href = links[2];
+    linked_a.target = "_blank";
     const linked_icon = document.createElement("i");
     linked_icon.className = "fa fa-linkedin-square";
     linked_icon.setAttribute("aria-hidden", "true");
@@ -121,11 +128,9 @@ Card.prototype = {
     image_src1,
     image_src2,
     title_text,
-    text
+    text,
+    links
   ) {
-    // const container = document.createElement("div");
-    // container.className = "scl_AFlip_maincontainer";
-
     const card = document.createElement("div");
     card.className = "scl_AFlip";
 
@@ -171,6 +176,8 @@ Card.prototype = {
 
     const facebook_a = document.createElement("a");
     facebook_a.className = "scl_AFlip_a";
+    facebook_a.href = links[0];
+    facebook_a.target = "_blank";
     const facebook_icon = document.createElement("i");
     facebook_icon.className = "fa fa-facebook-square";
     facebook_icon.setAttribute("aria-hidden", "true");
@@ -179,6 +186,8 @@ Card.prototype = {
 
     const github_a = document.createElement("a");
     github_a.className = "scl_AFlip_agit";
+    github_a.href = links[1];
+    github_a.target = "_blank";
     const github_icon = document.createElement("i");
     github_icon.className = "fa fa-github-square";
     github_icon.setAttribute("aria-hidden", "true");
@@ -187,6 +196,8 @@ Card.prototype = {
 
     const linked_a = document.createElement("a");
     linked_a.className = "scl_AFlip_agit";
+    linked_a.href = links[2];
+    linked_a.target = "_blank";
     const linked_icon = document.createElement("i");
     linked_icon.className = "fa fa-linkedin-square";
     linked_icon.setAttribute("aria-hidden", "true");
@@ -198,6 +209,8 @@ Card.prototype = {
 
     const twitter_a = document.createElement("a");
     twitter_a.className = "scl_AFlip_a";
+    twitter_a.href = links[3];
+    twitter_a.target = "_blank";
     const twitter_icon = document.createElement("i");
     twitter_icon.className = "fa fa-twitter-square";
     twitter_icon.setAttribute("aria-hidden", "true");
@@ -206,6 +219,8 @@ Card.prototype = {
 
     const instagram_a = document.createElement("a");
     instagram_a.className = "scl_AFlip_agit";
+    instagram_a.href = links[4];
+    instagram_a.target = "_blank";
     const instagram_icon = document.createElement("i");
     instagram_icon.className = "fa fa-instagram";
     instagram_icon.setAttribute("aria-hidden", "true");
@@ -214,8 +229,10 @@ Card.prototype = {
 
     const watsapp_a = document.createElement("a");
     watsapp_a.className = "scl_AFlip_agit";
+    watsapp_a.hrefs = links[5];
+    watsapp_a.target = "_blank";
     const watsapp_icon = document.createElement("i");
-    watsapp_icon.className = "fa fa-whatsapp";
+    watsapp_icon.className = "fa fa-envelope";
     watsapp_icon.setAttribute("aria-hidden", "true");
     watsapp_a.appendChild(watsapp_icon);
     face_div2.appendChild(watsapp_a);
@@ -225,7 +242,6 @@ Card.prototype = {
     back.appendChild(face_div2);
     card.appendChild(back);
 
-    // container.appendChild(card);
     const elem = document.getElementsByName(elementname);
     elem[0].appendChild(card);
     this.cards.push(card);
