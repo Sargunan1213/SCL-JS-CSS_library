@@ -70,6 +70,7 @@ function card1(card, input) {
   info.className = "scl_card1_text";
   div.appendChild(info);
   card.appendChild(div);
+  return div;
 }
 
 function card2(card, input) {
@@ -110,6 +111,7 @@ function card2(card, input) {
   div.appendChild(container2);
   div.style.backgroundImage = "url(" + input[0] + ")";
   card.appendChild(div);
+  return div;
 }
 
 function card3(card, input) {
@@ -130,6 +132,7 @@ function card3(card, input) {
   div.appendChild(text_container);
   div.style.backgroundImage = "url(" + input[0] + ")";
   card.appendChild(div);
+  return div;
 }
 
 function card4(card, input) {
@@ -180,6 +183,7 @@ function card4(card, input) {
   div.appendChild(container2);
   // div.style.backgroundImage = "url(" + input[0] + ")";
   card.appendChild(div);
+  return div;
 }
 
 const functions = {
@@ -259,10 +263,64 @@ function makeSliderOne(elementname, image_list) {
   right_button.onclick = tranRight;
   slider.appendChild(right_button);
   travel.push(0);
-
   const elem = document.getElementsByName(elementname);
   elem[0].appendChild(slider);
   return slider;
+}
+
+const clicks = [];
+function infoclick(event) {
+  const element = event.target.parentElement;
+  const para = element.lastChild;
+  const button = element.children[1];
+  const title = element.children[0];
+  const id = parseInt(element.id);
+  if (clicks[id] === 0) {
+    element.style.height = "100%";
+    element.style.overflow = "hidden";
+    title.style.paddingTop = "5%";
+    function doit(para) {
+      para.style.display = "block";
+    }
+    function over(para) {
+      para.style.overflow = "auto";
+    }
+    setTimeout(doit, 300, para);
+    setTimeout(over, 400, element);
+    button.innerText = "Less info";
+    clicks[id] = 1;
+  } else {
+    const element = event.target.parentElement;
+    const para = element.lastChild;
+    title.style.paddingTop = "15%";
+    element.style.height = "50%";
+    button.innerText = "More info";
+    para.style.display = "none";
+    clicks[id] = 0;
+  }
+}
+
+function expandablecard(element, inputs) {
+  const div = document.createElement("div");
+  div.className = "scl_expand_holder";
+  div.id = "" + clicks.length;
+  clicks.push(0);
+  const title = document.createElement("h1");
+  title.className = "scl_expand_title";
+  title.appendChild(document.createTextNode(inputs[0]));
+  const description = document.createElement("description");
+  description.className = "scl_expand_description";
+  description.appendChild(document.createTextNode(inputs[1]));
+  const button = document.createElement("button");
+  button.appendChild(document.createTextNode("More info"));
+  button.className = "scl_expand_button";
+  button.onclick = infoclick;
+  div.appendChild(title);
+  div.appendChild(button);
+  div.appendChild(description);
+  const elem = document.getElementsByName(element);
+  elem[0].appendChild(div);
+  return elem;
 }
 
 const cards = {
@@ -274,6 +332,155 @@ const cards = {
 const sliders = {
   1: makeSliderOne,
 };
+
+function func(dots, child, child2) {
+  dots.children[child].style.background = "white";
+  dots.children[child2].style.background = "transparent";
+}
+
+const carosel = [];
+const current = [];
+function caroseldot(event) {
+  const dotid = parseInt(event.target.id);
+  const holder = event.target.parentElement.parentElement;
+  const eleid = parseInt(holder.id);
+  const div = holder.lastChild;
+  const dots = holder.firstChild;
+  const size = div.children[0].offsetWidth;
+  const dist = current[eleid] - dotid;
+  carosel[eleid] += size * dist;
+  if (
+    div.childElementCount > 5 &&
+    dotid === 4 &&
+    carosel[eleid] !== -1 * (div.childElementCount - 1) * size
+  ) {
+    current[eleid] = 3;
+    div.style.transform = "translateX(" + carosel[eleid] + "px)";
+    for (let i = 0; i < dots.childElementCount; i++) {
+      dots.children[i].style.background = "transparent";
+    }
+    dots.children[4].style.background = "white";
+    setTimeout(func, 500, dots, 3, 4);
+    return;
+  } else if (div.childElementCount > 5 && dotid === 0 && carosel[eleid] !== 0) {
+    current[eleid] = 1;
+    div.style.transform = "translateX(" + carosel[eleid] + "px)";
+    for (let i = 0; i < dots.childElementCount; i++) {
+      dots.children[i].style.background = "transparent";
+    }
+    dots.children[0].style.background = "white";
+    setTimeout(func, 500, dots, 1, 0);
+    return;
+  } else {
+    current[eleid] = dotid;
+    div.style.transform = "translateX(" + carosel[eleid] + "px)";
+    for (let i = 0; i < dots.childElementCount; i++) {
+      dots.children[i].style.background = "transparent";
+    }
+    dots.children[dotid].style.background = "white";
+  }
+}
+function caroselleft(event) {
+  const holder = event.target.parentElement;
+  const dots = holder.firstChild;
+  const div = holder.lastChild;
+  const size = div.children[0].offsetWidth;
+  const eleid = parseInt(holder.id);
+  const dotid = current[eleid];
+
+  if (carosel[eleid] >= 0) {
+    carosel[eleid] = 0;
+    div.style.transform = "translateX(" + carosel[eleid] + "px)";
+    return;
+  } else {
+    if (current[eleid] !== 0) {
+      current[eleid] -= 1;
+      for (let i = 0; i < dots.childElementCount; i++) {
+        dots.children[i].style.background = "transparent";
+      }
+      dots.children[dotid - 1].style.background = "white";
+    }
+    carosel[eleid] += size;
+    div.style.transform = "translateX(" + carosel[eleid] + "px)";
+    if (
+      div.childElementCount > 5 &&
+      current[eleid] == 0 &&
+      carosel[eleid] !== 0
+    ) {
+      current[eleid] = 1;
+      for (let i = 0; i < dots.childElementCount; i++) {
+        dots.children[i].style.background = "transparent";
+      }
+      dots.children[0].style.background = "white";
+      setTimeout(func, 500, dots, 1, 0);
+    }
+    return;
+  }
+}
+function caroselright(event) {
+  const holder = event.target.parentElement;
+  const dots = holder.firstChild;
+  const div = holder.lastChild;
+  const size = div.children[0].offsetWidth;
+  const eleid = parseInt(holder.id);
+  const dotid = current[eleid];
+
+  if (carosel[eleid] <= -1 * (div.childElementCount - 1) * size) {
+    carosel[eleid] = -1 * (div.childElementCount - 1) * size;
+    div.style.transform = "translateX(" + carosel[eleid] + "px)";
+    return;
+  } else {
+    if (current[eleid] !== 4) {
+      current[eleid] += 1;
+      for (let i = 0; i < dots.childElementCount; i++) {
+        dots.children[i].style.background = "transparent";
+      }
+      dots.children[dotid + 1].style.background = "white";
+    }
+    carosel[eleid] -= size;
+    div.style.transform = "translateX(" + carosel[eleid] + "px)";
+    if (
+      current[eleid] == 4 &&
+      div.childElementCount > 5 &&
+      carosel[eleid] !== -1 * (div.childElementCount - 1) * size
+    ) {
+      current[eleid] = 3;
+      for (let i = 0; i < dots.childElementCount; i++) {
+        dots.children[i].style.background = "transparent";
+      }
+      dots.children[4].style.background = "white";
+      setTimeout(func, 500, dots, 3, 4);
+    }
+    return;
+  }
+}
+function caroselfirst(event) {
+  const holder = event.target.parentElement;
+  const dots = holder.firstChild;
+  const div = holder.lastChild;
+  const eleid = parseInt(holder.id);
+  current[eleid] = 0;
+  carosel[eleid] = 0;
+  div.style.transform = "translateX(" + carosel[eleid] + "px)";
+  for (let i = 0; i < dots.childElementCount; i++) {
+    dots.children[i].style.background = "transparent";
+  }
+  dots.children[0].style.background = "white";
+}
+function carosellast(event) {
+  const holder = event.target.parentElement;
+  const dots = holder.firstChild;
+  const div = holder.lastChild;
+  const eleid = parseInt(holder.id);
+  const size = div.children[0].offsetWidth;
+  carosel[eleid] = -1 * (div.childElementCount - 1) * size;
+  current[eleid] = 4;
+  div.style.transform = "translateX(" + carosel[eleid] + "px)";
+  for (let i = 0; i < dots.childElementCount; i++) {
+    dots.children[i].style.background = "transparent";
+  }
+  dots.children[4].style.background = "white";
+}
 
 Card.prototype = {
   makeCard: function (
@@ -302,5 +509,61 @@ Card.prototype = {
       const slider = sliders[slidernumber](element, inputs);
       this.slider.push(slider);
     }
+  },
+  makeexpand: function (element, inputs) {
+    const card = expandablecard(element, inputs);
+    this.cards.push(card);
+  },
+  carouseldots: function (element, facenumbers, faceinputs, optional = {}) {
+    const holder = document.createElement("div");
+    holder.className = "scl_carosel";
+    holder.id = "" + carosel.length;
+    carosel.push(0);
+    current.push(0);
+    const dots = document.createElement("div");
+    dots.className = "scl_carosel_dots";
+    for (let j = 0; j < facenumbers.length && j < 5; j++) {
+      const dotobject = document.createElement("div");
+      dotobject.className = "scl_dot";
+      dotobject.id = "" + j;
+      dotobject.addEventListener("click", caroseldot);
+      dots.appendChild(dotobject);
+    }
+    dots.children[0].style.background = "white";
+    holder.appendChild(dots);
+    const left_button = document.createElement("h1");
+    left_button.appendChild(document.createTextNode("<"));
+    left_button.className = "scl_carosel_left";
+    left_button.addEventListener("click", caroselleft);
+    const right_button = document.createElement("h1");
+    right_button.appendChild(document.createTextNode(">"));
+    right_button.addEventListener("click", caroselright);
+    right_button.className = "scl_carosel_right";
+    if ("buttons" in optional && optional["buttons"]) {
+      holder.appendChild(left_button);
+      holder.appendChild(right_button);
+    }
+    const first = document.createElement("h1");
+    first.appendChild(document.createTextNode("1"));
+    first.className = "scl_carosel_first";
+    first.addEventListener("click", caroselfirst);
+    const last = document.createElement("h1");
+    last.appendChild(document.createTextNode(facenumbers.length));
+    last.className = "scl_carosel_last";
+    last.addEventListener("click", carosellast);
+    if ("numbers" in optional && optional["numbers"]) {
+      holder.appendChild(first);
+      holder.appendChild(last);
+    }
+    const cards = document.createElement("div");
+    cards.className = "scl_carosel_cards";
+    for (let i = 0; i < facenumbers.length; i++) {
+      const div = functions[facenumbers[i]](cards, faceinputs[i]);
+      div.style.flexShrink = 0;
+    }
+    holder.appendChild(cards);
+    const elem = document.getElementsByName(element);
+    elem[0].appendChild(holder);
+    this.slider.push(holder);
   },
 };
