@@ -408,6 +408,7 @@
   margin-bottom: auto;
   margin-right: 2%;
   transition: 250ms ease-in;
+  cursor: pointer;
 }
 .scl_dot:hover {
   border: 2px solid lightblue;

@@ -343,7 +343,7 @@ const current = [];
 function caroseldot(event) {
   const dotid = parseInt(event.target.id);
   const holder = event.target.parentElement.parentElement;
-  const eleid = parseInt(holder.id);
+  const eleid = parseInt(holder.id.slice(6));
   const div = holder.lastChild;
   const dots = holder.firstChild;
   const size = div.children[0].offsetWidth;
@@ -380,17 +380,16 @@ function caroseldot(event) {
     dots.children[dotid].style.background = "white";
   }
 }
-function caroselleft(event) {
-  const holder = event.target.parentElement;
-  const dots = holder.firstChild;
-  const div = holder.lastChild;
-  const size = div.children[0].offsetWidth;
-  const eleid = parseInt(holder.id);
-  const dotid = current[eleid];
 
+function leftlogic(eleid, div, dots, size, dotid) {
   if (carosel[eleid] >= 0) {
-    carosel[eleid] = 0;
+    carosel[eleid] = -1 * (div.childElementCount - 1) * size;
+    current[eleid] = 4;
     div.style.transform = "translateX(" + carosel[eleid] + "px)";
+    for (let i = 0; i < dots.childElementCount; i++) {
+      dots.children[i].style.background = "transparent";
+    }
+    dots.children[4].style.background = "white";
     return;
   } else {
     if (current[eleid] !== 0) {
@@ -417,17 +416,16 @@ function caroselleft(event) {
     return;
   }
 }
-function caroselright(event) {
-  const holder = event.target.parentElement;
-  const dots = holder.firstChild;
-  const div = holder.lastChild;
-  const size = div.children[0].offsetWidth;
-  const eleid = parseInt(holder.id);
-  const dotid = current[eleid];
 
+function rightlogic(eleid, div, dots, size, dotid) {
   if (carosel[eleid] <= -1 * (div.childElementCount - 1) * size) {
-    carosel[eleid] = -1 * (div.childElementCount - 1) * size;
+    current[eleid] = 0;
+    carosel[eleid] = 0;
     div.style.transform = "translateX(" + carosel[eleid] + "px)";
+    for (let i = 0; i < dots.childElementCount; i++) {
+      dots.children[i].style.background = "transparent";
+    }
+    dots.children[0].style.background = "white";
     return;
   } else {
     if (current[eleid] !== 4) {
@@ -454,11 +452,29 @@ function caroselright(event) {
     return;
   }
 }
+function caroselleft(event) {
+  const holder = event.target.parentElement;
+  const dots = holder.firstChild;
+  const div = holder.lastChild;
+  const size = div.children[0].offsetWidth;
+  const eleid = parseInt(holder.id.slice(6));
+  const dotid = current[eleid];
+  leftlogic(eleid, div, dots, size, dotid);
+}
+function caroselright(event) {
+  const holder = event.target.parentElement;
+  const dots = holder.firstChild;
+  const div = holder.lastChild;
+  const size = div.children[0].offsetWidth;
+  const eleid = parseInt(holder.id.slice(6));
+  const dotid = current[eleid];
+  rightlogic(eleid, div, dots, size, dotid);
+}
 function caroselfirst(event) {
   const holder = event.target.parentElement;
   const dots = holder.firstChild;
   const div = holder.lastChild;
-  const eleid = parseInt(holder.id);
+  const eleid = parseInt(holder.id.slice(6));
   current[eleid] = 0;
   carosel[eleid] = 0;
   div.style.transform = "translateX(" + carosel[eleid] + "px)";
@@ -471,7 +487,7 @@ function carosellast(event) {
   const holder = event.target.parentElement;
   const dots = holder.firstChild;
   const div = holder.lastChild;
-  const eleid = parseInt(holder.id);
+  const eleid = parseInt(holder.id.slice(6));
   const size = div.children[0].offsetWidth;
   carosel[eleid] = -1 * (div.childElementCount - 1) * size;
   current[eleid] = 4;
@@ -480,6 +496,33 @@ function carosellast(event) {
     dots.children[i].style.background = "transparent";
   }
   dots.children[4].style.background = "white";
+}
+
+const holders = [];
+
+function move(timestamp) {
+  for (let i = 0; i < holders.length; i++) {
+    const holder = holders[i];
+    const dots = holder.firstChild;
+    const div = holder.lastChild;
+    const size = div.children[0].offsetWidth;
+    const eleid = parseInt(holder.id.slice(6));
+    const dotid = current[eleid];
+    if (carosel[eleid] <= -1 * (div.childElementCount - 1) * size) {
+      current[eleid] = 0;
+      carosel[eleid] = 0;
+      div.style.transform = "translateX(" + carosel[eleid] + "px)";
+      for (let i = 0; i < dots.childElementCount; i++) {
+        dots.children[i].style.background = "transparent";
+      }
+      dots.children[0].style.background = "white";
+    } else {
+      rightlogic(eleid, div, dots, size, dotid);
+    }
+  }
+  setTimeout(() => {
+    window.requestAnimationFrame(move);
+  }, 5000);
 }
 
 Card.prototype = {
@@ -514,10 +557,19 @@ Card.prototype = {
     const card = expandablecard(element, inputs);
     this.cards.push(card);
   },
+  autoplay: function (id) {
+    const element = document.getElementById(id);
+    holders.push(element);
+    if (holders.length === 1) {
+      setTimeout(() => {
+        window.requestAnimationFrame(move);
+      }, 5000);
+    }
+  },
   carouseldots: function (element, facenumbers, faceinputs, optional = {}) {
     const holder = document.createElement("div");
     holder.className = "scl_carosel";
-    holder.id = "" + carosel.length;
+    holder.id = "holder" + carosel.length;
     carosel.push(0);
     current.push(0);
     const dots = document.createElement("div");
@@ -565,5 +617,6 @@ Card.prototype = {
     const elem = document.getElementsByName(element);
     elem[0].appendChild(holder);
     this.slider.push(holder);
+    return holder.id;
   },
 };

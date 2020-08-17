@@ -45,7 +45,7 @@ const s = new Card();
 
 */
 
-s.carouseldots(
+const id = s.carouseldots(
   "card",
   [1, 2, 1, 2, 1, 2],
   [
@@ -97,7 +97,9 @@ s.carouseldots(
   ],
   { buttons: true }
 );
-s.carouseldots(
+
+s.autoplay(id);
+const id2 = s.carouseldots(
   "card2",
   [2, 1],
   [
@@ -118,6 +120,7 @@ s.carouseldots(
     ],
   ]
 );
+s.autoplay(id2);
 s.carouseldots(
   "card3",
   [2, 3],
