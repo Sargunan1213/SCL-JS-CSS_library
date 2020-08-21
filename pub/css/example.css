@@ -2,10 +2,246 @@
   margin: 0px;
   padding: 0px;
 }
-body {
-  background: url("../images/background5.png");
+.background {
+  background: url("../images/back.png");
   background-size: 100% 100%;
-  overflow-x: hidden;
+  background-repeat: no-repeat;
+}
+.title {
+  text-align: start;
+  padding-left: 10%;
+  padding-top: 1%;
+  font-weight: 800;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: xxx-large;
+  color: darkmagenta;
+  text-decoration: underline;
+  height: 76h;
+  width: 88vw;
+}
+.holder {
+  margin: 0px;
+  /* padding-top: 5%; */
+  padding-bottom: 5%;
+  height: 82vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+.description {
+  text-align: center;
+  flex: 1;
+  margin-top: 3%;
+  color: darkblue;
+  margin-left: 2%;
+  margin-right: 2%;
+  font-weight: bolder;
+  font-size: xx-large;
+  font-family: "Slabo 27px", serif;
+  margin-top: 8%;
+}
+
+.isometric {
+  flex: 1;
+  height: 60vh;
+  margin-left: 6%;
+  margin-top: 2%;
+  animation: transit 3s ease-out;
+}
+
+@keyframes transit {
+  from {
+    opacity: 0;
+    transform: translateX(-60%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+.cards {
+  margin-top: 2%;
+  height: fit-content;
+  width: 97%;
+  background: url("../images/cardback.png");
+  background-size: 100% 100%;
+  border-radius: 3vh;
+  margin-left: 2%;
+  margin-right: 2%;
+  text-align: center;
+}
+.innertitle {
+  color: mediumblue;
+}
+.steps {
+  color: navy;
+}
+
+.titlecard {
+  color: white;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  font-family: sans-serif;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.innertext,
+.expandtext,
+.expandtext2 {
+  color: darkblue;
+  font-size: larger;
+  letter-spacing: 1px;
+  text-align: start;
+  font-weight: 600;
+  padding-left: 8%;
+  padding-right: 6%;
+  font-family: sans-serif;
+}
+
+.cardholder {
+  display: flex;
+  flex-direction: row;
+  width: 98%;
+  height: 79vh;
+}
+.animation {
+  flex: 1;
+  padding-left: 3%;
+  padding-right: 2%;
+  width: 25%;
+  height: 95%;
+}
+
+.hold {
+  height: 100%;
+  width: 100%;
+  display: none;
+}
+.hold1 {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+.card {
+  height: 86%;
+  width: 100%;
+}
+.animation2 {
+  flex: 1;
+  padding-left: 1%;
+  width: 25%;
+  height: 95%;
+}
+
+.fix {
+  display: flex;
+  flex-direction: row;
+  width: 98%;
+  min-height: 44vh;
+  height: fit-content;
+}
+.expandtext {
+  flex: 1;
+  padding: 5%;
+  text-align: center;
+}
+.card2 {
+  flex: 1;
+  height: 100%;
+  width: 90%;
+  padding: 5%;
+  padding-right: 10%;
+}
+.fix2 {
+  display: flex;
+  flex-direction: row;
+  width: 98vw;
+  min-height: 79vh;
+  height: fit-content;
+}
+.expandtext2 {
+  flex: 1;
+  padding-top: 7%;
+  padding-left: 5%;
+}
+.card3 {
+  flex: 1;
+  height: 100%;
+  width: 70%;
+}
+.caroselholder {
+  flex: 1;
+  width: 45%;
+  padding-left: 11%;
+  padding-top: 1%;
+  padding-bottom: 2%;
+}
+.card4 {
+  position: absolute;
+  width: 20vh;
+  height: 5vh;
+}
+.step {
+  display: flex;
+  flex-direction: row;
+  height: 12vh;
+  list-style-type: none;
+  position: relative;
+  justify-content: center;
+}
+
+.stepnum,
+.stepnum1 {
+  border-radius: 50px;
+  padding-left: 1%;
+  padding-right: 1%;
+  z-index: 1;
+  margin-top: 1%;
+  margin-bottom: 2%;
+  margin-left: 6%;
+  margin-right: 6%;
+  height: 40%;
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
+  font-size: x-large;
+  font-weight: bold;
+  transition: 1s ease;
+}
+
+.stepnum1 {
+  background: linear-gradient(45deg, #f12711, #f5af0a);
+}
+
+.stepnum {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(45deg, #f12711, #f5af0a);
+}
+.stepnum:hover {
+  background: linear-gradient(45deg, #f12711, #f5af0a);
+}
+
+.tick {
+  display: none;
+}
+.progress {
+  height: 1vh;
+  position: absolute;
+  top: 4vh;
+  width: 31vw;
+  background: white;
+}
+
+.cardholder2 {
+  height: fit-content;
+  width: 98vw;
+}
+
+/* 
+body {
+  background-size: 100% 100%;
   overflow-wrap: break-word;
   background-repeat: repeat;
   background-clip: border-box;
@@ -30,13 +266,9 @@ body {
 }
 
 .background {
-  margin: 0px;
   height: 100vh;
   width: 100vw;
-  /* background: url("../images/background4.png"); */
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-clip: border-box;
+  display: flex;
 }
 
 .instructions {
@@ -133,4 +365,4 @@ body {
   padding-right: 2%;
   padding-left: 5%;
   width: 100px;
-}
+} */

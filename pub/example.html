@@ -1,77 +1,143 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>SCL</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="./css/example.css" />
-    <link rel="stylesheet" type="text/css" href="./css/scl.css" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-      crossorigin="anonymous"
-    />
-    <link href="https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap" rel="stylesheet">
-    <script defer type="text/javascript" src="./js/scl.js"></script>
-    <script defer type="text/javascript" src="./js/example.js"></script>
-  </head>
-  <body>
-      <div class="background">
-      <h1 class="title">SCL Library</h1>
-      <h3 class="description"> Easily add customisable cards, sliders and Carousel wheels to your Webpage. All it takes is two tags.</h3>
-      <p class="instructions"> Step 1: Download the two files here:     <a class="github" href="#"><i class="fa fa-github-square" aria-hidden="true"></i></a><br><br>
-        Step 2: Add the following tags listed below to &lt;head&gt; in your code modifying the links. <br>
-        <span class="links">
-        &lt;link rel="stylesheet" type="text/css" href="path/to//scl.css" /&gt;<br>
-      </span>
-      <span class="links">
-        &lt;script type="text/javascript" src="scl.js"&gt;&lt;/script&gt;
-      </span>
-      <br><br>
-      Step 3: In your JavaScript file create a new instance of Card as below:<br>
-      <span class="links">
-        const card = new Card();
-      </span><br><br>
-      Step 4: Access the built in functions using the instanciated variable, <br>
-      <span class="links">
-        s.makeCardAFlip(....);
-      </span><br><br>
-      Step 5: Enjoy using the functions to decorate your webpage.
-      </p>
-      <h2 class="subtitle"><i class="fa fa-contao" aria-hidden="true"></i>ards</h2>
-      <div class="functions2">
-        <p class="function_des"> <span class="functionname">makeANone(ElementName, ImageUrl, Text)</span><br>
-        The function helps create the card shown on the right with hover animations on the image. The first argument to this function is the name of the div element which should hold the card. Note that the height and width properties of the div element must be
-        set and the card will occupy the full div.The second argument is the url of the image to add and the third argument is the text to be added to the card. <br>
-        </p>
-        <div name="card" class="card"></div>
-      </div>
-      <div class="functions2">
-        <div name="card2" class="card2"></div>
-        <p class="function_des2"> <span class="functionname">makeAOpacity(ElementName, BackgroundImage, ProfileImage, Name, ShortDetails, Links)</span><br>
-        The function helps create the card shown on the left with hover animations to change the opacity. The first argument to this function is the name of the div element which should hold the card. Note that the height and width properties of the div element must be
-        set and the card will occupy the full div.The next two arguments are url's for the background and profile images respectively. The next two arguments are for the title text and the short description.The last argument is a list of links to add to the icons.
-         <br>
-        </p>
-      </div>
-      <div class="functions2">
-        <p class="function_des"> <span class="functionname">makeAFlip(ElementName, BackgroundImage, ProfileImage, Name, ShortDetails, Links)</span><br>
-        The function helps create a two sided card shown on the right. The first argument to this function is the name of the div element which should hold the card. Note that the height and width properties of the div element must be
-        set and the card will occupy the full div.The next two arguments are url's for the background image(on front side) and the profile image (on the back). The next two arguments are for the title text and the short description. The last argument is an array of 6 links for the icons.<br>
-        </p>
-        <div name="card3" class="card"></div>
-      </div>
-      <h2 class="subtitle"><i class="fa fa-scribd" aria-hidden="true"></i>liders</h2>
-      <div class="functions2">
-        <p class="function_des"> <span class="functionname">makeSliderOne(ElementName, ListOfImages)</span><br>
-        The function helps create the slider of images on the right. The first argument to this function is the name of the div element which should hold the card. Note that the height and width properties of the div element must be
-        set and the card will occupy the full div. The next argument is a list of images to add to the slider.<br>
-        Note: The slider is set up to move to the first element if the user tries going right on the last element and vice versa.
-        </p>
-        <div name="card4" class="card"></div>
-      </div>
-      </div>
-      
+
+<head>
+  <title>SCL</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="./css/example.css" />
+  <link rel="stylesheet" type="text/css" href="./css/scl.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap" rel="stylesheet" />
+  <script defer type="text/javascript" src="./js/scl.js"></script>
+  <script defer type="text/javascript" src="./js/example.js"></script>
+</head>
+
+<body>
+  <div class = "background">
+    <h1 class="title">SCL Library</h1>
+    <div class="holder">
+      <h3 class="description">
+        The future of cards, sliders and Carousel wheels is here. All it takes
+        is a links and a script.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi totam perferendis assumenda earum, aut eveniet libero eaque ipsam tenetur ipsum! Cumque quos in obcaecati. Maxime doloribus laudantium voluptatibus deserunt cum!
+      </h3>
+      <img class="isometric" name ="isometric" src="./images/isometric.svg">
+      </img>
     </div>
-  </body>
+  </div>
+  <div class ="cardholder2">
+    <div class="cards">
+      <h1 class="titlecard">makeCard</h1>
+
+      <div class = "step">
+        <div class="progress">
+        </div>
+        <div class="stepnum1" name = "buttonset" id ="buttonset1">
+          1
+          
+        </div>
+        <div class="stepnum" name = "buttonset" id ="buttonset2">
+         2
+        
+        </div>
+        <div class="stepnum" name = "buttonset" id ="buttonset3">
+          3
+        </div>
+      </div>
+      <div class = "hold1" name = "child" id="child1">
+        <h2 class="steps">Step 1: Pick one of the existing animations: <br></br></h2>
+        <div class="cardholder">
+          <div class = "animation">
+            <h1 class="innertitle"> 1 - No Animation<br></br></h1>
+            <div class="card" name = "card"></div>
+          </div>
+          <div class = "animation">
+            <h1 class="innertitle">2 - Opacity<br></br></h1>
+            <div class="card" name = "card2"></div>
+          </div>
+          <div class = "animation">
+            <h1 class="innertitle">3 - Flip<br></br></h1>
+            <div class="card" name = "card3"></div>
+          </div>
+        </div>
+      </div>
+      <div class = "hold" name = "child" id="child2">
+        <h2 class="steps">Step 2: Pick from the faces below   (Note: Flip animations require two faces): <br></br></h2>
+        <div class="cardholder">
+          <div class = "animation2">
+            <h1 class="innertitle"> Face 1<br></br></h1>
+            <div class="card" name = "card4"></div>
+          </div>
+          <div class = "animation2">
+            <h1 class="innertitle">Face 2<br></br></h1>
+            <div class="card" name = "card5"></div>
+          </div>
+          <div class = "animation2">
+            <h1 class="innertitle"> Face 3<br></br></h1>
+            <div class="card" name = "card6"></div>
+          </div>
+          <div class = "animation2">
+            <h1 class="innertitle"> Face 4<br></br></h1>
+            <div class="card" name = "card7"></div>
+          </div>
+        </div>
+      </div>
+      <div class="hold" name= "child" id="child3">
+        <h2 class="steps">Step 3: Use the make card function with the arguments as ordered below.<br></br><br></br></h2>
+        <p class = "innertext">
+          1. Name of the empty HTML element to add the card to. If there are multiple elements with the same name it will chooses the first one.Be wary that the card will occupy the full element.<br></br>
+          2. The Card number you chose in step 1.<br></br>
+          3. the face number(s) you chose in step 2. If the card uses a flip animation pass in a list of two faces.<br></br>
+          4. Array of parameters for the chosen face. If the card uses a flip pass in an array of two elements each of which is an array of parameters as required by the corresponding face.<br></br><br></br>
+        </p>
+        <h2 class="steps">Sample calls: <br></br></h2>  
+          
+        <p class="innertext">
+          Flip animation: makeCard("name", 3, [face_number1, face_number2], [[arguments_to_face_1],[[arguments_to_face_1]])<br></br>
+          Other animation: makeCard("name", card_number, face_number, [arguments_to_face])<br></br><br></br>
+        </p>
+      </div>
+    </div>
+  </div>
+
+<div class ="cardholder2">
+  <div class="cards">
+    <h1 class="titlecard">makeExpand</h1>
+    <div class="fix">
+      <div class="expandtext">
+        <p>Use the makeExpand function with the arguments as listed below.<br></br>
+            1. Name of the empty html element to add the card to.Be wary that the card will expand to the height needed.<br></br>
+            2. An array of two strings, the former is used as the title and the latter as the hidden text.<br></br>
+        </p>
+        <h3 class="steps">Sample call: <br></br></h2>    
+        <p class="innertext">
+          makeExpand("name", ["Sargunan", "I am a professional developer"])<br></br><br></br>
+        </p>
+      </div>
+      <div class="card2" name = "card8"></div>
+    </div>
+  </div>
+</div>
+<div class="cards">
+  <h1 class="titlecard">carouselDots</h1>
+  <div class="fix2">
+    <!-- We first take a look at what each of its functions do.<br></br>
+      The titular function produces a carousel from the faces listed in step 2 of makeCard with only dots to navigate.<br></br>
+      The number of dots cap at 5 but still provide the user the ability to navigate all the cards. The dots will adapt and reposition themselves to allow the user access to other cards.<br></br>
+      Additionally, the user can add an optional argument, namely buttons, to provide arrow buttons that help scroll the carousel too.<br></br>
+      Lastly, the user can also use the optional argument, namely numbers, to provide first and last buttons to move to the start and end of the carousel respectively.<br></br>
+      Uses the buttons below to play with the card. -->
+      <p class="expandtext2"> Please read the getting strated to find the optional arguments, faces and autoplay details.  Use the arguments as listed below.<br></br>
+    1. Name of the empty HTML element to add the card to.Be wary that the card will occupy the full element.<br></br>
+    2. An array of face numbers that the carousel will contain.<br></br>
+    3. An array of arrays each of which contains the arguments to the corresponding face.<br></br>
+    </p>
+    <div class="caroselholder">
+    <div class="card3" name = "card9"></div>
+  </div>
+  </div>
+</div>
+</body>
+
 </html>

@@ -10,8 +10,6 @@ let travel = [];
 
 function tranRight(event) {
   const container = event.target.parentElement.childNodes[1];
-  // const container = document.getElementById("scl_Slider_imgholder");
-  // console.log(event);
   const count = container.childElementCount;
   const img_size = container.offsetWidth;
   const id = parseInt(container.id);
@@ -274,26 +272,25 @@ function infoclick(event) {
   const para = element.lastChild;
   const button = element.children[1];
   const title = element.children[0];
-  const id = parseInt(element.id);
+  const id = parseInt(element.id.slice(5));
   if (clicks[id] === 0) {
-    element.style.height = "100%";
-    element.style.overflow = "hidden";
-    title.style.paddingTop = "5%";
+    element.style.overflow = "auto";
+    title.style.paddingTop = "10%";
     function doit(para) {
       para.style.display = "block";
     }
     function over(para) {
       para.style.overflow = "auto";
     }
-    setTimeout(doit, 300, para);
+    setTimeout(doit, 500, para);
     setTimeout(over, 400, element);
     button.innerText = "Less info";
     clicks[id] = 1;
   } else {
     const element = event.target.parentElement;
     const para = element.lastChild;
-    title.style.paddingTop = "15%";
-    element.style.height = "50%";
+    element.style.overflow = "hidden";
+    title.style.paddingTop = "3%";
     button.innerText = "More info";
     para.style.display = "none";
     clicks[id] = 0;
@@ -303,7 +300,7 @@ function infoclick(event) {
 function expandablecard(element, inputs) {
   const div = document.createElement("div");
   div.className = "scl_expand_holder";
-  div.id = "" + clicks.length;
+  div.id = "click" + clicks.length;
   clicks.push(0);
   const title = document.createElement("h1");
   title.className = "scl_expand_title";
@@ -319,6 +316,9 @@ function expandablecard(element, inputs) {
   div.appendChild(button);
   div.appendChild(description);
   const elem = document.getElementsByName(element);
+  if (elem.length === 0) {
+    return div;
+  }
   elem[0].appendChild(div);
   return elem;
 }
@@ -525,6 +525,34 @@ function move(timestamp) {
   }, 5000);
 }
 
+const expandbar = [];
+function open(event) {
+  const holder = event.target.parentElement;
+  const button = event.target;
+  const id = parseInt(holder.id.slice(20));
+  console.log(id);
+  console.log(holder.id);
+  if (expandbar[id] === 0) {
+    button.innerText = "x";
+    const elements = Array.from(holder.childNodes).slice(1);
+    for (let i = 0; i < elements.length; i++) {
+      elements[i].style.display = "block";
+      elements[i].style.opacity = 1;
+      elements[i].style.marginTop = "4%";
+      elements[i].style.marginLeft = "2%";
+    }
+    expandbar[id] = 1;
+  } else {
+    button.innerText = "+";
+    const elements = Array.from(holder.childNodes).slice(1);
+    for (let i = 0; i < elements.length; i++) {
+      elements[i].style.display = "none";
+      elements[i].style.opacity = 0;
+    }
+    expandbar[id] = 0;
+  }
+}
+
 Card.prototype = {
   makeCard: function (
     element,
@@ -553,11 +581,12 @@ Card.prototype = {
       this.slider.push(slider);
     }
   },
-  makeexpand: function (element, inputs) {
+  makeExpand: function (element, inputs) {
     const card = expandablecard(element, inputs);
     this.cards.push(card);
+    return card;
   },
-  autoplay: function (id) {
+  autoPlay: function (id) {
     const element = document.getElementById(id);
     holders.push(element);
     if (holders.length === 1) {
@@ -566,7 +595,7 @@ Card.prototype = {
       }, 5000);
     }
   },
-  carouseldots: function (element, facenumbers, faceinputs, optional = {}) {
+  carouselDots: function (element, facenumbers, faceinputs, optional = {}) {
     const holder = document.createElement("div");
     holder.className = "scl_carosel";
     holder.id = "holder" + carosel.length;
@@ -611,12 +640,31 @@ Card.prototype = {
     cards.className = "scl_carosel_cards";
     for (let i = 0; i < facenumbers.length; i++) {
       const div = functions[facenumbers[i]](cards, faceinputs[i]);
-      div.style.flexShrink = 0;
+      div.style.minWidth = "100%";
     }
     holder.appendChild(cards);
     const elem = document.getElementsByName(element);
     elem[0].appendChild(holder);
     this.slider.push(holder);
     return holder.id;
+  },
+  Expandable: function (element, inputs) {
+    const holder = document.createElement("div");
+    holder.id = "scl_expandbar_holder" + expandbar.length;
+    holder.className = "scl_expandbar_holder";
+    expandbar.push(0);
+    const button = document.createElement("div");
+    button.className = "scl_expandbar_button";
+    button.appendChild(document.createTextNode("+"));
+    button.addEventListener("click", open);
+    holder.appendChild(button);
+    for (let i = 0; i < inputs.length; i++) {
+      const card = this.makeExpand(holder, inputs[i]);
+      holder.appendChild(card);
+      card.style.display = "none";
+    }
+    const elem = document.getElementsByName(element);
+    elem[0].appendChild(holder);
+    this.slider.push(holder);
   },
 };
