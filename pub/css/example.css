@@ -2,6 +2,10 @@
   margin: 0px;
   padding: 0px;
 }
+
+html {
+  scroll-behavior: smooth;
+}
 .background {
   background: url("../images/back.png");
   background-size: 100% 100%;
@@ -42,6 +46,36 @@
   margin-top: 8%;
 }
 
+.button1,
+.button2 {
+  margin-top: 13%;
+  padding: 4%;
+  font-size: large;
+  font-weight: bolder;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: white;
+  transition: 1s ease;
+}
+.button1:hover {
+  letter-spacing: 1px;
+}
+.button2:hover {
+  letter-spacing: 1px;
+}
+
+.button1 {
+  background: linear-gradient(to right, #fdc830, #f37335);
+  border-top-left-radius: 10vh;
+  border-bottom-left-radius: 10vh;
+}
+.button2 {
+  background: linear-gradient(to right, #f37335, #fdc830);
+  border-top-right-radius: 10vh;
+  border-bottom-right-radius: 10vh;
+}
+
 .isometric {
   flex: 1;
   height: 60vh;
@@ -65,6 +99,7 @@
   height: fit-content;
   width: 97%;
   background: url("../images/cardback.png");
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-size: 100% 100%;
   border-radius: 3vh;
   margin-left: 2%;
@@ -86,10 +121,14 @@
   font-size: xx-large;
   font-weight: bold;
 }
-
+code {
+  height: fit-content;
+  width: 100%;
+}
 .innertext,
 .expandtext,
-.expandtext2 {
+.expandtext2,
+.innertext2 {
   color: darkblue;
   font-size: larger;
   letter-spacing: 1px;
@@ -98,6 +137,12 @@
   padding-left: 8%;
   padding-right: 6%;
   font-family: sans-serif;
+}
+
+.innertext2 {
+  padding-top: 2%;
+  text-align: center;
+  padding-bottom: 2%;
 }
 
 .cardholder {
@@ -115,14 +160,31 @@
 }
 
 .hold {
-  height: 100%;
+  min-height: 100%;
+  height: fit-content;
   width: 100%;
   display: none;
 }
-.hold1 {
+.hold1,
+.start {
   height: 100%;
   width: 100%;
   display: block;
+}
+.code {
+  text-align: center;
+  color: darkblue;
+  font-size: larger;
+  letter-spacing: 1px;
+  text-align: start;
+  font-weight: 600;
+  background: #eeeeee;
+  padding: 1%;
+  border-radius: 1vh;
+  font-family: monospace;
+  margin-bottom: 1%;
+  margin-left: 4%;
+  margin-right: 4%;
 }
 .card {
   height: 86%;
@@ -218,7 +280,19 @@
 .stepnum {
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
     linear-gradient(45deg, #f12711, #f5af0a);
+  animation: blink 1s infinite;
 }
+
+@keyframes blink {
+  from {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      linear-gradient(45deg, #f12711, #f5af0a);
+  }
+  to {
+    background: linear-gradient(45deg, #f12711, #f5af0a);
+  }
+}
+
 .stepnum:hover {
   background: linear-gradient(45deg, #f12711, #f5af0a);
 }

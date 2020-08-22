@@ -17,17 +17,43 @@
   <div class = "background">
     <h1 class="title">SCL Library</h1>
     <div class="holder">
-      <h3 class="description">
+      <div class="description">
+        <h3>
         The future of cards, sliders and Carousel wheels is here. All it takes
-        is a links and a script.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi totam perferendis assumenda earum, aut eveniet libero eaque ipsam tenetur ipsum! Cumque quos in obcaecati. Maxime doloribus laudantium voluptatibus deserunt cum!
-      </h3>
+        is a links and a script. Have a look at the getting started maual for more information on faces, card numbers and optional parameters. 
+        </h3>
+        <a href="#start"><button class = "button1">Getting started</button></a>
+        <a href="#cards"><button class = "button2">Documentation</button></a>
+      </div>
       <img class="isometric" name ="isometric" src="./images/isometric.svg">
       </img>
     </div>
   </div>
   <div class ="cardholder2">
     <div class="cards">
+      <div class="start" id="start">
+        <h1 class="titlecard">Getting Started</h1>
+        <p class = "innertext">
+          The first step to use the library is adding the script and link tags into the code.<br></br>
+        </p> 
+        <p class="code">
+          &ltlink rel="stylesheet" type="text/css" href="./css/scl.css"/&gt</p>
+        <p class="code">
+          &ltscript defer type="text/javascript" src="./js/scl.js"&gt&lt/script&gt
+        </p>
+        <p class="innertext">
+          Secondly, initialise a new card variable in your javascript file. <br></br>
+        </p>
+        <p class="code">
+          const card = new Card();<br></br>
+          card.makeCard("card_name", 1, 3, ["image_link","TITLE","SUB-TITLE",]);
+        </p>
+        <p class="innertext">
+          Lastly, users using face numbers 2 and 4 must import the <a href="https://fontawesome.com/v4.7.0/icons/" target = "_blank">Font awesome</a> 4.7 library for the icons.<br></br>
+        </p>
+      </div>
+    </div>
+    <div class="cards" id="cards">
       <h1 class="titlecard">makeCard</h1>
 
       <div class = "step">
@@ -93,10 +119,37 @@
         </p>
         <h2 class="steps">Sample calls: <br></br></h2>  
           
-        <p class="innertext">
-          Flip animation: makeCard("name", 3, [face_number1, face_number2], [[arguments_to_face_1],[[arguments_to_face_1]])<br></br>
-          Other animation: makeCard("name", card_number, face_number, [arguments_to_face])<br></br><br></br>
+        <p class="code">
+          Flip animation: card.makeCard("name", 3, [face_number1, face_number2], [[arguments_to_face_1],[[arguments_to_face_1]])<br></br>
+          Other animation: card.makeCard("name", card_number, face_number, [arguments_to_face])
         </p>
+        <h2 class="steps">Optional Arguments: <br></br></h2>  
+        <p class = "innertext">
+          This is an object of key value pairs passes after all required arguments. Passing this object is OPTIONAL.<br></br>
+          Face 1: Keys: background, color. Background controls the background of text in the card while color changes text color.<br></br>
+        </p>
+        <p class="code">
+          card.makeCard("name", card_number, 1, [arguments_to_face], {background: "white", color: "black"})
+        </p>
+        <p class = "innertext">
+          Face 2: Keys: title, subtitle, iconcolor, opacity. Title and subtitle control the colors of the title and subtitle respectively. The iconcolor changes the colour of the icon and the opacity key is used to define a layer of opacity on the background image alone.<br></br>
+        </p>
+        <p class="code">
+          card.makeCard("name", card_number, 2, [arguments_to_face], {opacity: 0.7, title: "black", subtitle: "black", iconcolor: "blue"})
+        </p>
+        <p class = "innertext">
+          Face 3: Keys: title, subtitle, opacity. Title and subtitle control the colors of the title and subtitle respectively. The opacity key is used to define a layer of opacity on the background image alone.<br></br>
+        </p>
+        <p class="code">
+          card.makeCard("name", card_number, 3, [arguments_to_face], {opacity: 0.7, title: "black", subtitle: "black"})
+        </p>
+        <p class = "innertext">
+          Face 4: Keys: title, iconcolor, opacity. Title controls the colors of the title. The opacity key is used to define a layer of opacity on the background video alone, while the iconcolor sets the color of the icon.<br></br>
+        </p>
+        <p class="code">
+          card.makeCard("name", card_number, 4, [arguments_to_face], {opacity: 0.7, title: "black", iconcolor: "blue"})
+        </p>
+        <p><br></br></p>
       </div>
     </div>
   </div>
@@ -110,33 +163,61 @@
             1. Name of the empty html element to add the card to.Be wary that the card will expand to the height needed.<br></br>
             2. An array of two strings, the former is used as the title and the latter as the hidden text.<br></br>
         </p>
-        <h3 class="steps">Sample call: <br></br></h2>    
-        <p class="innertext">
-          makeExpand("name", ["Sargunan", "I am a professional developer"])<br></br><br></br>
-        </p>
       </div>
       <div class="card2" name = "card8"></div>
     </div>
+    <h2 class="steps">Sample call: <br></br></h2>    
+        <p class="code">
+          card.makeExpand("name", ["SCL", "Card Library"])
+        </p>
+        <p><br></br><br></br></p>
   </div>
 </div>
 <div class="cards">
   <h1 class="titlecard">carouselDots</h1>
   <div class="fix2">
-    <!-- We first take a look at what each of its functions do.<br></br>
-      The titular function produces a carousel from the faces listed in step 2 of makeCard with only dots to navigate.<br></br>
-      The number of dots cap at 5 but still provide the user the ability to navigate all the cards. The dots will adapt and reposition themselves to allow the user access to other cards.<br></br>
-      Additionally, the user can add an optional argument, namely buttons, to provide arrow buttons that help scroll the carousel too.<br></br>
-      Lastly, the user can also use the optional argument, namely numbers, to provide first and last buttons to move to the start and end of the carousel respectively.<br></br>
-      Uses the buttons below to play with the card. -->
-      <p class="expandtext2"> Please read the getting strated to find the optional arguments, faces and autoplay details.  Use the arguments as listed below.<br></br>
+      <p class="expandtext2"> Please read the arguments as listed below.<br></br>
     1. Name of the empty HTML element to add the card to.Be wary that the card will occupy the full element.<br></br>
     2. An array of face numbers that the carousel will contain.<br></br>
     3. An array of arrays each of which contains the arguments to the corresponding face.<br></br>
+    4. An object containing the optional arguments pertaining to the carosel (OPTIONAL but pass an empty object if you want to use the next argument).<br></br>
+    5. An object of keys being the face numbers and values being an object containing the optional arguments to that face. Look at step 3 on makeCard (OPTIONAL).<br></br> 
     </p>
     <div class="caroselholder">
-    <div class="card3" name = "card9"></div>
+      <div class="card3" name = "card9"></div>
+    </div>
   </div>
+  <p class="code">
+    card.carouselDots("name", [1,2,3,4], [[arguments],[arguments],[arguments],[arguments]])
+  </p>
+  <p class="innertext2"> 
+    We first take a look at what each of the control buttons do and how they work. Note these optional arguments are part of the object passed in argument 4 and are OPTIONAL to pass.<br></br>
+      The titular function produces a carousel from the faces listed in step 2 of makeCard with only dots to navigate.<br></br>
+      The number of dots cap at 5 but still provide the user the ability to navigate all the cards. The dots will adapt and reposition themselves to allow the user access to other cards.<br></br>
+      Additionally, the user can add an optional argument, namely buttons, to provide arrow buttons that help scroll the carousel too. These buttons work on a circular basis and move the carosel from end to end if the user hits the right button at the rightend or left button at the left end.<br></br>
+      Lastly, the user can also the other optional argument, namely numbers, to provide first and last buttons to move to the start and end of the carousel respectively.<br></br>
+  </p>
+  <p class="code">
+    card.carouselDots("name", [1,2,3,4], [[arguments],[arguments],[arguments],[arguments]], {buttons: true}, {1: {background: "white"},...})
+  </p>
+  <p><br></br></p>
+</div>
+<div class="cards">
+  <h1 class="titlecard">Expandable</h1>
+  <div class="fix">
+    <div class="expandtext">
+      <p>Use the Expandable function with the arguments as listed below.<br></br>
+          1. Name of the empty html element to add the card to.The element must only be set with its height and width as needed for the button to expand. The element will expand beyond the div as a normal navbar does so do not contain the overflow on this element.<br></br>
+          2. An array containing arrays of two strings, the former is used as the title and the latter as the hidden text in the order passed in.<br></br>
+      </p>
+    </div>
+    <div class="card2" name = "card10"></div>
   </div>
+  <h2 class="steps">Sample call: <br></br></h2>    
+      <p class="code">
+        card.makeExpand("name", [["SCL", "Card Library"], ["Sargunan", "Web Developer"]])
+      </p>
+      <p><br></br><br></br></p>
 </div>
 </body>
 

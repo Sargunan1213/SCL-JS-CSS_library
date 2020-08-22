@@ -1,139 +1,144 @@
-const s = new Card();
-s.makeCard("card2", 2, 2, [
-  "./images/sargu2.jpg",
-  "./images/sargu.jpg",
-  "Sargunan",
-  "WEB APP DESIGNER",
-  [
-    "https://www.facebook.com/sargu.sargu/",
-    "https://github.com/Sargunan1213",
-    "https://www.linkedin.com/in/sargu/",
-  ],
-]);
-s.makeCard("card", 1, 2, [
-  "./images/sargu2.jpg",
-  "./images/sargu.jpg",
-  "Sargunan",
-  "WEB APP DESIGNER",
-  [
-    "https://www.facebook.com/sargu.sargu/",
-    "https://github.com/Sargunan1213",
-    "https://www.linkedin.com/in/sargu/",
-  ],
-]);
+"use strict";
 
-s.makeCard(
-  "card3",
-  3,
-  [2, 3],
-  [
+function create() {
+  const s = new Card();
+  s.makeCard("card2", 2, 2, [
+    "./images/sargu2.jpg",
+    "./images/sargu.jpg",
+    "Sargunan",
+    "WEB APP DESIGNER",
     [
-      "./images/sargu2.jpg",
-      "./images/sargu.jpg",
-      "Sargunan",
-      "WEB APP DESIGNER",
-      [
-        "https://www.facebook.com/sargu.sargu/",
-        "https://github.com/Sargunan1213",
-        "https://www.linkedin.com/in/sargu/",
-      ],
+      "https://www.facebook.com/sargu.sargu/",
+      "https://github.com/Sargunan1213",
+      "https://www.linkedin.com/in/sargu/",
     ],
-    ["./images/sargu7.jpg", "Sargunan", "WEB APP DESIGNER"],
-  ]
-);
+  ]);
+  s.makeCard("card", 1, 2, [
+    "./images/sargu2.jpg",
+    "./images/sargu.jpg",
+    "Sargunan",
+    "WEB APP DESIGNER",
+    [
+      "https://www.facebook.com/sargu.sargu/",
+      "https://github.com/Sargunan1213",
+      "https://www.linkedin.com/in/sargu/",
+    ],
+  ]);
 
-s.makeCard("card4", 1, 1, [
-  "./images/sargu4.jpg",
-  "The library and this website were designed by Sargunan Gurumurthy.",
-]);
-s.makeCard("card5", 1, 2, [
-  "./images/sargu2.jpg",
-  "./images/sargu.jpg",
-  "Sargunan",
-  "WEB APP DESIGNER",
-  [
-    "https://www.facebook.com/sargu.sargu/",
-    "https://github.com/Sargunan1213",
-    "https://www.linkedin.com/in/sargu/",
-  ],
-]);
-s.makeCard("card6", 1, 3, [
-  "./images/sargu7.jpg",
-  "Sargunan",
-  "WEB APP DESIGNER",
-]);
-s.makeCard("card7", 1, 4, [
-  "http://techslides.com/demos/sample-videos/small.mp4",
-  "video/mp4",
-  "./images/sargu.jpg",
-  "Sargunan",
-  [
-    "https://www.facebook.com/sargu.sargu/",
-    "https://github.com/Sargunan1213",
-    "https://www.linkedin.com/in/sargu/",
-    "#",
-    "https://www.instagram.com/sarguskillzzz",
-    "mailto:sargunan1213@gmail.com",
-  ],
-]);
-s.makeExpand("card8", ["Sargunan", "I am a professional developer"]);
-// s.Expandable("hi", [
-//   ["Sargunan", "I am a professional developer"],
-//   ["Sargunan", "I am a professional developer"],
-// ]);
-const id = s.carouselDots(
-  "card9",
-  [1, 2, 1, 2, 1, 2],
-  [
+  s.makeCard(
+    "card3",
+    3,
+    [2, 3],
     [
-      "./images/sargu4.jpg",
-      "The library and this website were designed by Sargunan Gurumurthy.",
-    ],
-    [
-      "./images/sargu2.jpg",
-      "./images/sargu.jpg",
-      "Sargunan",
-      "WEB APP DESIGNER",
       [
-        "https://www.facebook.com/sargu.sargu/",
-        "https://github.com/Sargunan1213",
-        "https://www.linkedin.com/in/sargu/",
+        "./images/sargu2.jpg",
+        "./images/sargu.jpg",
+        "Sargunan",
+        "WEB APP DESIGNER",
+        [
+          "https://www.facebook.com/sargu.sargu/",
+          "https://github.com/Sargunan1213",
+          "https://www.linkedin.com/in/sargu/",
+        ],
+      ],
+      ["./images/sargu7.jpg", "Sargunan", "WEB APP DESIGNER"],
+    ]
+  );
+  s.makeCard("card4", 1, 1, [
+    "./images/sargu4.jpg",
+    "The library and this website were designed by Sargunan Gurumurthy.",
+  ]);
+  s.makeCard("card5", 1, 2, [
+    "./images/sargu2.jpg",
+    "./images/sargu.jpg",
+    "Sargunan",
+    "WEB APP DESIGNER",
+    [
+      "https://www.facebook.com/sargu.sargu/",
+      "https://github.com/Sargunan1213",
+      "https://www.linkedin.com/in/sargu/",
+    ],
+  ]);
+  s.makeCard("card6", 1, 3, [
+    "./images/sargu7.jpg",
+    "Sargunan",
+    "WEB APP DESIGNER",
+  ]);
+  s.makeCard("card7", 1, 4, [
+    "http://techslides.com/demos/sample-videos/small.mp4",
+    "video/mp4",
+    "./images/sargu.jpg",
+    "Sargunan",
+    [
+      "https://www.facebook.com/sargu.sargu/",
+      "https://github.com/Sargunan1213",
+      "https://www.linkedin.com/in/sargu/",
+      "#",
+      "https://www.instagram.com/sarguskillzzz",
+      "mailto:sargunan1213@gmail.com",
+    ],
+  ]);
+  s.makeExpand("card8", ["SCL", "Card Library"]);
+  const id = s.carouselDots(
+    "card9",
+    [1, 2, 1, 2, 1, 2],
+    [
+      [
+        "./images/sargu4.jpg",
+        "The library and this website were designed by Sargunan Gurumurthy.",
+      ],
+      [
+        "./images/sargu2.jpg",
+        "./images/sargu.jpg",
+        "Sargunan",
+        "WEB APP DESIGNER",
+        [
+          "https://www.facebook.com/sargu.sargu/",
+          "https://github.com/Sargunan1213",
+          "https://www.linkedin.com/in/sargu/",
+        ],
+      ],
+      [
+        "./images/sargu4.jpg",
+        "The library and this website were designed by Sargunan Gurumurthy.",
+      ],
+      [
+        "./images/sargu2.jpg",
+        "./images/sargu.jpg",
+        "Sargunan",
+        "WEB APP DESIGNER",
+        [
+          "https://www.facebook.com/sargu.sargu/",
+          "https://github.com/Sargunan1213",
+          "https://www.linkedin.com/in/sargu/",
+        ],
+      ],
+      [
+        "./images/sargu4.jpg",
+        "The library and this website were designed by Sargunan Gurumurthy.",
+      ],
+      [
+        "./images/sargu2.jpg",
+        "./images/sargu.jpg",
+        "Sargunan",
+        "WEB APP DESIGNER",
+        [
+          "https://www.facebook.com/sargu.sargu/",
+          "https://github.com/Sargunan1213",
+          "https://www.linkedin.com/in/sargu/",
+        ],
       ],
     ],
-    [
-      "./images/sargu4.jpg",
-      "The library and this website were designed by Sargunan Gurumurthy.",
-    ],
-    [
-      "./images/sargu2.jpg",
-      "./images/sargu.jpg",
-      "Sargunan",
-      "WEB APP DESIGNER",
-      [
-        "https://www.facebook.com/sargu.sargu/",
-        "https://github.com/Sargunan1213",
-        "https://www.linkedin.com/in/sargu/",
-      ],
-    ],
-    [
-      "./images/sargu4.jpg",
-      "The library and this website were designed by Sargunan Gurumurthy.",
-    ],
-    [
-      "./images/sargu2.jpg",
-      "./images/sargu.jpg",
-      "Sargunan",
-      "WEB APP DESIGNER",
-      [
-        "https://www.facebook.com/sargu.sargu/",
-        "https://github.com/Sargunan1213",
-        "https://www.linkedin.com/in/sargu/",
-      ],
-    ],
-  ],
-  { buttons: true, numbers: true }
-);
-s.autoPlay(id);
+    { buttons: true, numbers: true }
+  );
+  s.autoPlay(id);
+  s.expandable("card10", [
+    ["SCL", "Card Library"],
+    ["Sargunan", "Web designer  "],
+  ]);
+}
+
+create();
 
 const step = document.getElementsByName("buttonset");
 const stepbutton1 = step[0];
@@ -147,10 +152,12 @@ for (let i = 0; i < step.length; i++) {
     let k = 1;
     for (; k <= id; k++) {
       step[k - 1].style.background = "linear-gradient(45deg, #f12711, #f5af0a)";
+      step[k - 1].style.animation = "none";
     }
     for (; k <= 3; k++) {
       step[k - 1].style.background =
         "linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),linear-gradient(45deg, #f12711, #f5af0a)";
+      step[k - 1].style.animation = "blink 1s infinite";
     }
     const div = button.parentElement.parentElement;
     const child = Array.from(div.childNodes);
