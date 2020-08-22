@@ -219,7 +219,7 @@ code {
 .fix2 {
   display: flex;
   flex-direction: row;
-  width: 98vw;
+  width: 96vw;
   min-height: 79vh;
   height: fit-content;
 }
