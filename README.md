@@ -18,4 +18,5 @@ card.makeCard("card_name", 1, 3, ["image_link","TITLE","SUB-TITLE"]);
 Lastly, users using face numbers 2 and 4 must import the Font awesome 4.7 library for the icons.(https://fontawesome.com/v4.7.0/)
 
 
-## Documentation: https://polar-coast-80311.herokuapp.com/example.html#cards
+## Documentation: 
+https://polar-coast-80311.herokuapp.com/example.html#cards
