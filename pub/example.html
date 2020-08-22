@@ -123,6 +123,46 @@
           Flip animation: card.makeCard("name", 3, [face_number1, face_number2], [[arguments_to_face_1],[[arguments_to_face_1]])<br></br>
           Other animation: card.makeCard("name", card_number, face_number, [arguments_to_face])
         </p>
+        <h2 class="steps">Arguments for Faces: <br></br></h2>  
+        <p class = "innertext">
+          Face 1: <br></br>
+          Argument 1: Image Link for the icon image.<br></br> 
+          Argument 2: Text to display under image.<br></br>
+        </p>
+        <p class="code">
+          card.makeCard("name", card_number, 1, ["https://res.cloudinary.com/doaxg76qe/image/upload/v1596985177/ben1xw6w8jfpaoltn1qz.png", "Welcome to SCL Library"])
+        </p>
+        <p class = "innertext">
+          Face 2: <br></br>
+          Argument 1: Image Link for the icon(circular) image.<br></br> 
+          Argument 2: Image Link for the background image<br></br>
+          Argument 3: Text for the main title<br></br>
+          Argument 4: Text for the sub title<br></br>
+          Argument 5: Array of links to facebook, github and linkedin profiles respectively<br></br>
+        </p>
+        <p class="code">
+          card.makeCard("name", card_number, 2, ["https://res.cloudinary.com/doaxg76qe/image/upload/v1596985177/ben1xw6w8jfpaoltn1qz.png", "https://res.cloudinary.com/doaxg76qe/image/upload/v1596985177/ben1xw6w8jfpaoltn1qz.png", "SCL Library", "Cool cards", ["https:/facebook", "https:/github", "https:/linked"]])
+        </p>
+        <p class = "innertext">
+          Face 3: <br></br>
+          Argument 1: Image Link for the background image.<br></br> 
+          Argument 2: Text for the main title<br></br>
+          Argument 3: Text for the sub-title<br></br>
+        </p>
+        <p class="code">
+          card.makeCard("name", card_number, 3, ["https://res.cloudinary.com/doaxg76qe/image/upload/v1596985177/ben1xw6w8jfpaoltn1qz.png", "SCL Library", "Cool cards"])
+        </p>
+        <p class = "innertext">
+          Face 4: <br></br>
+          Argument 1: Video Link for the background video.<br></br> 
+          Argument 2: Type of the video<br></br>
+          Argument 3: Link to icon image<br></br>
+          Argument 4: Title to display<br></br>
+          Argument 5: Array of links to facebook, github, linkedin, twitter, instagram profiles and e-mail address respectively<br></br>
+        </p>
+        <p class="code">
+          card.makeCard("name", card_number, 4, ["https:video.mp4", "mp4", "https: image", "SCL Library", ["facebook.com", "#", "#", "#", "#", "#"]])
+        </p>
         <h2 class="steps">Optional Arguments: <br></br></h2>  
         <p class = "innertext">
           This is an object of key value pairs passes after all required arguments. Passing this object is OPTIONAL.<br></br>
@@ -199,6 +239,14 @@
   </p>
   <p class="code">
     card.carouselDots("name", [1,2,3,4], [[arguments],[arguments],[arguments],[arguments]], {buttons: true}, {1: {background: "white"},...})
+  </p>
+  <p><br></br></p>
+  <p class="innertext2"> 
+  Now, the carouselDots function returns an id. If autoplay is needed, then call use the below code to toggle autoplay. <br></br>
+  </p>
+  <p class="code">
+    const id = card.carouselDots("name", [1,2,3,4], [[arguments],[arguments],[arguments],[arguments]], {buttons: true}, {1: {background: "white"},...});<br></br>
+    card.autoplay(id)
   </p>
   <p><br></br></p>
 </div>

@@ -81,7 +81,7 @@ function create() {
   s.makeExpand("card8", ["SCL", "Card Library"]);
   const id = s.carouselDots(
     "card9",
-    [1, 2, 1, 2, 1, 2],
+    [1, 2, 3, 4, 2, 4],
     [
       [
         "./images/sargu4.jpg",
@@ -98,9 +98,20 @@ function create() {
           "https://www.linkedin.com/in/sargu/",
         ],
       ],
+      ["./images/sargu7.jpg", "Sargunan", "WEB APP DESIGNER"],
       [
-        "./images/sargu4.jpg",
-        "The library and this website were designed by Sargunan Gurumurthy.",
+        "http://techslides.com/demos/sample-videos/small.mp4",
+        "video/mp4",
+        "./images/sargu.jpg",
+        "Sargunan",
+        [
+          "https://www.facebook.com/sargu.sargu/",
+          "https://github.com/Sargunan1213",
+          "https://www.linkedin.com/in/sargu/",
+          "#",
+          "https://www.instagram.com/sarguskillzzz",
+          "mailto:sargunan1213@gmail.com",
+        ],
       ],
       [
         "./images/sargu2.jpg",
@@ -114,18 +125,17 @@ function create() {
         ],
       ],
       [
-        "./images/sargu4.jpg",
-        "The library and this website were designed by Sargunan Gurumurthy.",
-      ],
-      [
-        "./images/sargu2.jpg",
+        "http://techslides.com/demos/sample-videos/small.mp4",
+        "video/mp4",
         "./images/sargu.jpg",
         "Sargunan",
-        "WEB APP DESIGNER",
         [
           "https://www.facebook.com/sargu.sargu/",
           "https://github.com/Sargunan1213",
           "https://www.linkedin.com/in/sargu/",
+          "#",
+          "https://www.instagram.com/sarguskillzzz",
+          "mailto:sargunan1213@gmail.com",
         ],
       ],
     ],
@@ -134,7 +144,7 @@ function create() {
   s.autoPlay(id);
   s.expandable("card10", [
     ["SCL", "Card Library"],
-    ["Sargunan", "Web designer  "],
+    ["Sargunan", "Web designer"],
   ]);
 }
 
