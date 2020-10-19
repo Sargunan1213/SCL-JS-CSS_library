@@ -9,10 +9,6 @@ These include flipping the card, making the card a popup or clipart animations a
 The library also provides the user the power to generate fully customisable scrolling elements that
 contains multiple cards.
 
-### Usage
-
-
-
 ## Getting Started:
 The first step to use the library is adding the script and link tags into the code.
 
@@ -29,3 +25,6 @@ card.makeCard("card_name", 1, 3, ["image_link","TITLE","SUB-TITLE"]);
 **Voila,** the website looks stunning now. 
 
 NOTE: Users using face numbers 2 and 4 must import the Font awesome 4.7 library for the icons.(https://fontawesome.com/v4.7.0/)
+
+Refer to the landing page for further details and documentation. ( https://polar-coast-80311.herokuapp.com/example.html
+)
