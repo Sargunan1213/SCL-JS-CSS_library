@@ -12,15 +12,19 @@ contains multiple cards.
 ## Getting Started:
 The first step to use the library is adding the script and link tags into the code.
 
+```
 <link rel="stylesheet" type="text/css" href="./css/scl.css"/>
 
 <script defer type="text/javascript" src="./js/scl.js"></script>
+```
 
 Secondly, initialise a new card variable in your javascript file and passin the name of an empty div.
 
+```
 const card = new Card();
 
 card.makeCard("card_name", 1, 3, ["image_link","TITLE","SUB-TITLE"]);
+```
 
 **Voila,** the website looks stunning now. 
 
