@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/csc309-summer-2020/js-library-gurumur2#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.3"
   }
 }
