@@ -1,7 +1,5 @@
 # SCL Library
 
-**Deployed App:**  https://polar-coast-80311.herokuapp.com/example.html
-
 ## Description:
 The library is designed to provide users an easy way to create customisable cards and scrolling
 elements. The most basic feature of the library is generating a fully styled card element that can be customised with information, images and animations.
